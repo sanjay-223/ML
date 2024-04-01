@@ -1,8 +1,8 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier,plot_tree
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-
+import matplotlib.pyplot as plt
 # Load the dataset
 df = pd.read_csv("../URL_data.csv")
 
@@ -41,3 +41,7 @@ conf_matrix = confusion_matrix(y_test, y_pred)
 # Print the confusion matrix
 print("Confusion Matrix:")
 print(conf_matrix)
+
+plt.figure(figsize=(20,10))
+plot_tree(model,filled=True,feature_names=X.columns,class_names=['0','1'])
+plt.show()
