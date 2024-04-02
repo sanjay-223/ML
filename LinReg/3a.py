@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 data = pd.read_csv('Salary_dataset.csv')
 data.drop(columns=['Sno'],inplace=True)
-X = data['Exp'].values
+ 
 y = data['Sal'].values //1000
 
 mean_X = np.mean(X)
@@ -23,7 +23,7 @@ mse = np.mean((y - predicted_y) ** 2)
 
 ss_tot = np.sum((y - mean_y) ** 2)
 ss_res = np.sum((y - predicted_y) ** 2)
-r2_score = 1 - (ss_res / ss_tot)
+r2_score = 1 - (ss_res / ss_tot)    
 
 plt.scatter(X, y, color='blue', label='Data Points')
 plt.plot(X, predicted_y, color='red', label='Linear Regression')
